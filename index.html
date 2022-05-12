@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang = "ja">
+<head>
+<title>フィルム重量計算</title>
+
+<script type="text/javascript" >
+
+function keisan(){
+
+  var wi11 = document.form1.wi1.value;
+  var wi21 = document.form1.wi2.value;
+  var cccos1 = document.form1.cccos.value;
+  var rcos1 = document.form1.rcos.value;
+  var mcos1 = document.form1.mcos.value;
+  var alcos1 = document.form1.alcos.value;
+  var pcos1 = document.form1.pcos.value;
+
+  // CC単価total1",(幅wi1/1000)*厚みwi2*cc単価cccos
+  var total1 = (Number(wi11)/1000) * Number(wi21) * Number(cccos1);
+  document.form1.ft1.value = total1; // 合計を表示
+
+  // "R単価",(F19紙幅/500)*(K19単価/1000)
+  var total2 = (Number(wi11)/500) * (Number(rcos1)/1000);
+  document.form1.ft2.value = total2; // 合計を表示
+
+  // "㎡単価",(F19紙幅/1000)*K19単価
+  var total3 = (Number(wi11)/1000) * Number(mcos1);
+  document.form1.ft3.value = total3; // 合計を表示
+
+  // "Kg(AL)",((F19紙幅/1000)*(D19厚み/1000))*2.71*K19単価
+  var total4 = (Number(wi11)/1000) * (Number(wi21)/1000)*2.71*Number(alcos1);
+  document.form1.ft4.value = total4; // 合計を表示
+
+  // "Kg(紙)",(F19紙幅/1000)*(D19/1000)*K19,K19)))))
+  var total5 =  (Number(wi11)/1000) * (Number(wi21)/1000)*Number(pcos1);
+  document.form1.ft5.value = total5; // 合計を表示
+
+}
+
+
+</script> 
+
+</head>
+<body>
+
+<table>
+<th>各単価のm単価換算</th></br>
+</br>
+</br>
+</table>
+
+<form action="#" name="form1">
+
+<table>
+<tr>
+<th>項目</th>
+<th>入力・選択</th>
+</tr></br>
+<tr>
+<td>製品幅(mm)</td>
+<td><input type="id" class="box" name="wi1" onChange="keisan()"></td>
+<td>mm</td>
+</tr>
+<tr>
+<td>厚み(μ)</td>
+<td><input type="id" class="box" name="wi2" onChange="keisan()"></td>
+<td>μ</td>
+</tr>
+<tr>
+<td>以下計算したい項目に単価を入力</td>
+</tr>
+<tr><td>・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・</td></tr>
+<tr><td>・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・</td></tr>
+<tr>
+<td>cc単価</td>
+<td><input type="id" class="box" name="cccos" onChange="keisan()"></td>
+<td>cc/円</td>
+<td alig="right"><strong>m単価に換算⇒</strong></td>
+<td><output type="text" name="ft1" size="8" value="0"></td>
+<td>円/m</td>
+</tr>
+<tr>
+<td>R単価</td>
+<td><input type="id" class="box" name="rcos" onChange="keisan()"></td>
+<td>R/円</td>
+<td alig="right"><strong>m単価に換算⇒</strong></td>
+<td><output type="text" name="ft2" size="8" value="0"></td>
+<td>円/m</td>
+</tr>
+<tr>
+<td>㎡単価</td>
+<td><input type="id" class="box" name="mcos" onChange="keisan()"></td>
+<td>㎡/円</td>
+<td alig="right"><strong>m単価に換算⇒</strong></td>
+<td><output type="text" name="ft3" size="8" value="0"></td>
+<td>円/m</td>
+</tr>
+<tr>
+<td>kg単価(AL)</td>
+<td><input type="id" class="box" name="alcos" onChange="keisan()"></td>
+<td>kg/円</td>
+<td alig="right"><strong>m単価に換算⇒</strong></td>
+<td><output type="text" name="ft4" size="8" value="0"></td>
+<td>円/m</td>
+</tr>
+<tr>
+<td>kg単価(紙)</td>
+<td><input type="id" class="box" name="pcos" onChange="keisan()"></td>
+<td>kg/円</td>
+<td alig="right"><strong>m単価に換算⇒</strong></td>
+<td><output type="text" name="ft5" size="8" value="0"></td>
+<td>円/m</td>
+</tr>
+
+
+</table>
+
+</form>
+
+</body>
+</html>
